@@ -1103,7 +1103,7 @@ class OidcProvider:
 
         # If there is an id_token, it should be validated, regardless of the
         # userinfo endpoint is used or not.
-        if token.get("id_token") is not None:
+        '''if token.get("id_token") is not None:
             try:
                 id_token = await self._parse_id_token(token, nonce=session_data.nonce)
                 sid = id_token.get("sid")
@@ -1113,7 +1113,9 @@ class OidcProvider:
                 return
         else:
             id_token = None
-            sid = None
+            sid = None'''
+        id_token = None
+        sid = None
 
         # Now that we have a token, get the userinfo either from the `id_token`
         # claims or by fetching the `userinfo_endpoint`.
