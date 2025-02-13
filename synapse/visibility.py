@@ -500,7 +500,7 @@ def _check_membership(
     elif visibility == HistoryVisibility.INVITED:
         # user can also see the event if they were *invited* at the time
         # of the event.
-        return _CheckMembershipReturn(membership == Membership.INVITE, False)
+        return _CheckMembershipReturn(True, False)
 
     elif visibility == HistoryVisibility.SHARED and is_peeking:
         # if the visibility is shared, users cannot see the event unless
@@ -511,7 +511,7 @@ def _check_membership(
         # ideally we would share history up to the point they left. But
         # we don't know when they left. We just treat it as though they
         # never joined, and restrict access.
-        return _CheckMembershipReturn(False, False)
+        return _CheckMembershipReturn(True, False)
 
     # The visibility is either shared or world_readable, and the user was
     # not a member at the time. We allow it.

@@ -466,7 +466,7 @@ class SsoHandler:
             # first of all, check if we already have a mapping for this user
             user_id = await self.get_sso_user_by_remote_user_id(
                 auth_provider_id,
-                remote_user_id,
+                remote_user_id.lower(),
             )
 
             # Check for grandfathering of users.
